@@ -1,0 +1,13 @@
+sudo: false
+language: python
+python:
+- '2.7'
+- '3.3'
+- '3.4'
+- '3.5'
+install: make travis-install
+script: make travis-script
+after_success: codeclimate-test-reporter
+notifications:
+  slack:
+    secure: WuKrRQ5mNe2NgMV8OrPnU9hvUaY+verV5Avoq2sJ/Lex/ZXr8QtDKT4lw0DDuVyo5548i23Vhjzt1Q5c/v/R/F4rIZccjqzJ0EXPg59/dIT55AfgtQGa0OquSt22ebPPpHOqOnJliGiSAFzYd6tGr0AK/9T0dD4uxadngqEAsLPyHoVjGIIXAjrtPDPPO6oPw00HPsjgc26UBwwz1uNgdutohaIzk6BG/xWC1u0DvkIpP++PRasWN2S2c5cEyrpVCjsXt55P7yddqfNKX+Za/mIwUZ2xmZY5bePT3k4H2EDowR4pdayiTl/ueoGodbEGAJUnV2Fp09AzMGDZVOjGjh12GFqcj9920PZODMiZKeqtxUgsDMDfhhPsaU28/URxBbYHsPYc5CSS6KA1xBTum+OjLbpa9/B+ksx+poMr7v4gha+Rxo1+3R2gkjeExHilZ7shK2l6bmugJXKFKl+JcBWYZHh9Rtp82FsH2s7sGfN749G/m9S2mc/hGcHqGKN28rn/QeUeuGD4dOZD3s8+mBjdxUjy2GY+NuJeGqnvnnYKqigl1epubDSkTxUYwHc981G38I7bwHtZe4DLy0PTbcStr5VWm4HgSw/d2+6+S6uO1psqu6buWSV66CIfkXj6+beMAmu/E9CH3R1/oDYlUxB4YNrPQKIkdGXygTzY1j8=
