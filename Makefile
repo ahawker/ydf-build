@@ -23,6 +23,20 @@ travis-install: codeclimate-install  ## Install dependencies for travis-ci.org i
 .PHONY: travis-script
 travis-script: travis-install tox  ## Entry point for travis-ci.org execution.
 
+.PHONY: codeclimate-install
+codeclimate-install:  ## Install dependencies required for codeclimate.com integration.
+		@pip install -q -r requirements/codeclimate.txt
+
+.PHONY: codeclimate
+codeclimate:  ## Run codeclimate analysis.
+	@docker run \
+		--interactive --tty --rm \
+		--env CODECLIMATE_CODE="$(shell pwd)" \
+		--volume "$(shell pwd)":/code \
+		--volume /var/run/docker.sock:/var/run/docker.sock \
+		--volume /tmp/cc:/tmp/cc \
+		codeclimate/codeclimate analyze
+
 .PHONY: clean-pyc
 clean-pyc:  ## Remove local python cache files.
 	@find . -name '__pycache__' -type d -exec rm -r {} +
