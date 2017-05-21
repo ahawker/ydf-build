@@ -16,6 +16,13 @@ tox-install:  ## Install dependencies required for local test execution using to
 tox: tox-install  ## Run test suite using tox.
 	@tox
 
+.PHONY: travis-install
+travis-install: codeclimate-install  ## Install dependencies for travis-ci.org integration.
+	@pip install -q -r requirements/travis.txt
+
+.PHONY: travis-script
+travis-script: travis-install tox  ## Entry point for travis-ci.org execution.
+
 .PHONY: clean-pyc
 clean-pyc:  ## Remove local python cache files.
 	@find . -name '__pycache__' -type d -exec rm -r {} +
