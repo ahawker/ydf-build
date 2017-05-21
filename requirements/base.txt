@@ -1,0 +1,6 @@
+# ydf-build/requirements/base.txt
+#
+# Requirements for using this package.
+
+click
+bumpversion
